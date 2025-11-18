@@ -19,56 +19,53 @@ int isDigit(char c) {
 }
 
 int main() {
-    char s[1000];
-    cin.getline(s, 1000);
-
+    char line[1000];
+    cin.getline(line, 1000); 
     int i = 0;
     char token[100];
     int t;
 
-    while (s[i] != '\0') {
-        if (s[i] == ' ' || s[i] == '\t') {
+    while (line[i] != '\0') {
+        if (line[i] == ' ' || line[i] == '\t') {
             i++;
-            continue;
+            continue; 
         }
 
-        if (isLetter(s[i])) {
+        if (isLetter(line[i])) {
             t = 0;
-            while (isLetter(s[i]) || isDigit(s[i])) {
-                token[t++] = s[i++];
+            while (isLetter(line[i]) || isDigit(line[i])) {
+                token[t++] = line[i++];
             }
             token[t] = '\0';
 
-            if (strcmp(token, "int") == 0 ||
-                strcmp(token, "float") == 0 ||
-                strcmp(token, "if") == 0 ||
-                strcmp(token, "else") == 0)
-                cout << token << " : Keyword\n";
+            if (strcmp(token,"int")==0 || strcmp(token,"float")==0 ||
+                strcmp(token,"if")==0 || strcmp(token,"else")==0)
+                cout << token << " : Keyword" << endl;
             else
-                cout << token << " : Identifier\n";
+                cout << token << " : Identifier" << endl;
 
             continue;
         }
 
-        if (isDigit(s[i])) {
+        if (isDigit(line[i])) {
             t = 0;
-            while (isDigit(s[i])) {
-                token[t++] = s[i++];
+            while (isDigit(line[i])) {
+                token[t++] = line[i++];
             }
             token[t] = '\0';
-            cout << token << " : Number\n";
+            cout << token << " : Number" << endl;
             continue;
         }
 
-        if (s[i] == '+' || s[i] == '-' || s[i] == '*' ||
-            s[i] == '/' || s[i] == '=') {
-            cout << s[i] << " : Operator\n";
+        if (line[i]=='+' || line[i]=='-' || line[i]=='*' ||
+            line[i]=='/' || line[i]=='=') {
+            cout << line[i] << " : Operator" << endl;
             i++;
             continue;
         }
 
-        if (s[i] == ';') {
-            cout << s[i] << " : Semicolon\n";
+        if (line[i] == ';') {
+            cout << line[i] << " : Semicolon" << endl;
             i++;
             continue;
         }
@@ -78,3 +75,4 @@ int main() {
 
     return 0;
 }
+

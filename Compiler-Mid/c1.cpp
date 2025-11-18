@@ -6,31 +6,33 @@ using namespace std;
 
 int main() {
     char s[100];
-    int i = 0;
-    int state = 0;
 
-    cin >> s;
+    while (true) {
+        cin >> s;
+        int i = 0;
+        int state = 0;
 
-    while (s[i] != '\0') {
-        if (state == 0) {
-            if (s[i] == 'a') state = 1;
-            else {
-                state = -1;
-                break;
+        while (s[i] != '\0') {
+            if (state == 0) {
+                if (s[i] == 'a') state = 1;
+                else {
+                    state = -1;
+                    break;
+                }
             }
-        }
-        else if (state == 1) {
-            if (s[i] == 'b' || s[i] == 'c') state = 1;
-            else {
-                state = -1;
-                break;
+            else if (state == 1) {
+                if (s[i] == 'b' || s[i] == 'c') state = 1;
+                else {
+                    state = -1;
+                    break;
+                }
             }
+            i++;
         }
-        i++;
+
+        if (state == 1) cout << "Accepted\n";
+        else cout << "Rejected\n";
     }
-
-    if (state == 1) cout << "Accepted\n";
-    else cout << "Rejected\n";
 
     return 0;
 }

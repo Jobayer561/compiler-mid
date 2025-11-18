@@ -1,16 +1,16 @@
 // 2. Given the NFA for the regular expression: (a|b)*abb give me code,explanation
 #include <iostream>
 using namespace std;
-
 int main() {
     char s[1000];
-
     while (cin >> s) {
         int state = 0;
-
         for (int i = 0; s[i] != '\0'; i++) {
             char c = s[i];
-
+            if(c != 'a' && c != 'b') {
+            cout << "Invalid";
+            return 0;
+        }
             if (state == 0) {
                 if (c == 'a') state = 1;
                 else if (c == 'b') state = 0;
@@ -33,7 +33,6 @@ int main() {
             }
             else state = 4;
         }
-
         if (state == 3) cout << "ACCEPT\n";
         else cout << "REJECT\n";
     }

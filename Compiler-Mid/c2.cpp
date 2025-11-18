@@ -4,10 +4,14 @@ using namespace std;
 
 int main() {
     char s[1000];
-    while (cin >> s) {
+
+    while (true) {
+        cin >> s;
         int state = 0;
-        for (int i = 0; s[i] != '\0'; ++i) {
+
+        for (int i = 0; s[i] != '\0'; i++) {
             char c = s[i];
+
             if (state == 0) {
                 if (c == 'a') state = 1;
                 else if (c == 'b') state = 0;
@@ -20,9 +24,12 @@ int main() {
             }
             else state = 2;
         }
+
         if (state == 1) cout << "ACCEPT\n";
         else cout << "REJECT\n";
     }
+
     return 0;
 }
+
 

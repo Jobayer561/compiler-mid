@@ -29,7 +29,6 @@ int main() {
                 break;
             }
         }
-
         if (valid) cout << s << " : Valid Identifier\n";
         else cout << s << " : Invalid Identifier\n";
     }
